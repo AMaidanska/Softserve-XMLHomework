@@ -78,7 +78,7 @@ public class XMLHomeworkApp {
                 expr = xpath.compile(xPath);
                 nodeList =  (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
                 for (int i = 0; i < nodeList.getLength(); i++){
-                    printNode(nodeList.item(i));
+                    printNode(nodeList.item(i), xPath);
                 }
             }
 
@@ -87,7 +87,8 @@ public class XMLHomeworkApp {
         }
     }
 
-    private void printNode(Node item) {
+    private void printNode(Node item, String xPath) {
+        System.out.println("Result for " + "\""  + xPath + "\"" + " query");
         System.out.println("Node name - " + item.getNodeName());
         System.out.println("Node attributes quantity: " + item.getAttributes().getLength());
         System.out.println("Node children quantity: " + item.getChildNodes().getLength());
